@@ -1,0 +1,97 @@
+-- ghi chú tạo cơ sở dữ liệu
+
+DROP DATABASE IF EXISTS Testing_System_Assigment1 ;
+
+CREATE DATABASE Testing_System_Assigment1;
+
+-- tạo bảng dữ liệu
+
+USE Testing_System_Assigment1;
+
+CREATE TABLE `Department` (
+    DepartmentID		TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    DepartmentName 		VARCHAR(255) NOT NULL UNIQUE KEY
+);
+
+CREATE TABLE `Position` (
+    PositionID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    PositionName 		ENUM('Dev', 'Test', 'Scrum Master', 'PM') NOT NULL UNIQUE KEY
+);
+
+CREATE TABLE `Account` (
+    AccountID TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Email VARCHAR(255) NOT NULL UNIQUE KEY,
+    Username VARCHAR(255) NOT NULL UNIQUE KEY,
+    FullName VARCHAR(255) NOT NULL,
+    DepartmentID TINYINT UNSIGNED NOT NULL,
+    PositionID TINYINT UNSIGNED NOT NULL,
+    CreateDate DATETIME DEFAULT NOW(),
+    FOREIGN KEY (DepartmentID)REFERENCES Department (DepartmentID),
+    FOREIGN KEY (PositionID)REFERENCES Position (PositionID)
+);  
+
+CREATE TABLE `Group` (
+    GroupID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    GroupName 			VARCHAR(255) NOT NULL UNIQUE KEY ,
+    CreatorID 			TINYINT UNSIGNED NOT NULL,
+    CreateDate 			DATETIME DEFAULT NOW()
+);
+
+CREATE TABLE `GroupAccount`(
+    GroupID 			TINYINT UNSIGNED AUTO_INCREMENT ,
+    AccountID 			TINYINT UNSIGNED NOT NULL,
+    JoinDate 			DATETIME DEFAULT NOW(),
+    FOREIGN KEY(GroupID) REFERENCES `Group`( GroupID) ON DELETE CASCADE, 
+    FOREIGN KEY(AccountID) REFERENCES `Account`(AccountID) ON DELETE CASCADE
+);
+
+CREATE TABLE `TypeQuestion` (
+    TypeID 				TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY ,
+    TypeName			ENUM('Essay','Multiple-Choice') NOT NULL UNIQUE
+);
+
+CREATE TABLE `CategoryQuestion` (
+    CategoryID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    CategoryName 		ENUM('Java', '.NET', 'SQL', 'Postman', 'Ruby') NOT NULL UNIQUE KEY
+);
+
+-- DROP TABLE IF EXISTS `Question`;
+
+CREATE TABLE `Question` (
+    QuestionID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Content 			VARCHAR(255) NOT NULL UNIQUE,
+    -- XẾP TỪ 0 -255 KO ĐC BỎ TRỐNG 
+    CategoryID 			TINYINT UNSIGNED NOT NULL,
+    TypeID 				TINYINT UNSIGNED NOT NULL,
+    CreatorID 			TINYINT UNSIGNED NOT NULL,
+    CreateDate 			DATETIME DEFAULT NOW(),
+    FOREIGN KEY(TypeID) REFERENCES `TypeQuestion`(TypeID),
+    FOREIGN KEY(CategoryID) REFERENCES `CategoryQuestion`(CategoryID)
+  --  FOREIGN KEY (CreatorID) REFERENCES `Group`(CreatorID)
+);
+
+CREATE TABLE Answer (
+    AnswerID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Content			 	VARCHAR(255) UNIQUE NOT NULL,
+    QuestionID 			TINYINT UNSIGNED NOT NULL,
+    isCorrect 			BOOLEAN,
+    FOREIGN KEY (QuestionID) REFERENCES `Question`(QuestionID)  ON DELETE CASCADE,
+    FOREIGN KEY (Content) REFERENCES `Question`(Content) ON DELETE CASCADE
+);
+
+CREATE TABLE Exam (
+    ExamID 				TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `Code` 				VARCHAR(255) NOT NULL UNIQUE,
+    Title 				VARCHAR(255) NOT NULL,
+    CategoryIDi 		VARCHAR(255) NOT NULL,
+    Duration 			TIME NOT NULL ,
+    CreatorID 			TINYINT UNSIGNED NOT NULL,
+    CreateDate 			DATETIME NOT NULL
+);
+
+CREATE TABLE ExamQuestion (
+    ExamID 				TINYINT UNSIGNED AUTO_INCREMENT  PRIMARY KEY ,
+    QuestionID 			TINYINT UNSIGNED NOT NULL UNIQUE,
+    FOREIGN KEY (QuestionID) REFERENCES `Question` (QuestionID)
+
+);

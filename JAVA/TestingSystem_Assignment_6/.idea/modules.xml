@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/DebugExercise/DebugExercise.iml" filepath="$USER_HOME$/Downloads/DebugExercise/DebugExercise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DebugExercise/DebugExercise1.iml" filepath="$PROJECT_DIR$/../../DebugExercise/DebugExercise1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestingSystem_Assignment_6.iml" filepath="$PROJECT_DIR$/TestingSystem_Assignment_6.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/Testing_System_Assignment_4_Debug/Testing_System_Assignment_4_Debug.iml" filepath="$USER_HOME$/Downloads/Testing_System_Assignment_4_Debug/Testing_System_Assignment_4_Debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Testing_System_Assignment_4_Debug/Testing_System_Assignment_4_Debug1.iml" filepath="$PROJECT_DIR$/../../Testing_System_Assignment_4_Debug/Testing_System_Assignment_4_Debug1.iml" />
+    </modules>
+  </component>
+</project>
