@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements IUserService {
-
     public final IUserRepository iUserRepository;
 
     public UserServiceImpl(IUserRepository iUserRepository) {

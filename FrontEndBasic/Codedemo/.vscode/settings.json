@@ -1,0 +1,8 @@
+{
+    "editor.hover.enabled": false,
+    "editor.lightbulb.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.hover.sticky": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false
+}

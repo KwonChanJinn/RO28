@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
  * Class chưa các hàm hỗ trợ liên quan đến nhập dữ liệu từ bàn phím
  */
 public class ScannerUtils {
-
     private static Scanner sc = new Scanner(System.in);
 
     public static Integer inputInt() {
@@ -22,8 +21,8 @@ public class ScannerUtils {
             }
         }
     }
-    //public static final Pattern REGEX_EMAIL = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
+    //public static final Pattern REGEX_EMAIL = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     public static String inputString() {
         while (true) {
             String string = sc.nextLine().trim();

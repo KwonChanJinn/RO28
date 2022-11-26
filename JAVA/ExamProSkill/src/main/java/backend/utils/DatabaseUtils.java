@@ -12,17 +12,14 @@ import java.util.Properties;
  * Class chứa các hàm hỗ trợ liên quan đến database
  */
 public class DatabaseUtils {
-
 	private static DatabaseUtils dbIsntance;
 	private static Connection con;
-
 	public static DatabaseUtils getInstance() {
 		if (dbIsntance == null) {
 			dbIsntance = new DatabaseUtils();
 		}
 		return dbIsntance;
 	}
-
 	public static void closeConnection(Connection conn) {
 		try {
 			conn.close();
@@ -30,7 +27,6 @@ public class DatabaseUtils {
 			e.printStackTrace();
 		}
 	}
-
 	public Connection getDatabaseConnection() {
 		try {
 			Properties properties = new Properties();
@@ -51,5 +47,4 @@ public class DatabaseUtils {
 		}
 		return con;
 	}
-
 }

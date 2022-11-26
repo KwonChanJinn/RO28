@@ -1,0 +1,44 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+
+.box1 {
+    background-color: blue;
+}
+
+.box2 {
+    background-color: yellow;
+    color: red;
+    margin-left: 50px;
+    margin-left: 50px;
+    text-align: center;
+    padding: 15px;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.box3 {
+    background-color: green;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+
+    border-width: 15px;
+    border-style: solid;
+    border-color: red;
+
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#h2_box2 {
+    color: green;
+    font-style: oblique;
+}

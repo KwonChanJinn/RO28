@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "rifi2k.format-html-in-php",
+        "mohd-akram.vscode-html-format",
+        "michelemelluso.code-beautifier",
+        "esbenp.prettier-vscode",
+        "bracketpaircolordlw.bracket-pair-color-dlw",
+        "dracula-theme.theme-dracula",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.test-adapter-converter",
+        "BracketPairColorDLW.bracket-pair-color-dlw"
+    ]
+}

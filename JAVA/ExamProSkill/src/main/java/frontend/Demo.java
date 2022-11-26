@@ -56,7 +56,7 @@ public class Demo {
 
     public static void main(String[] args) throws SQLException {
 
-        System.out.println("**********************Chào mừng bạn đến với chương trình tí hon*****************");
+        System.out.println("************Chào mừng bạn đến với chương trình tí hon************ ");
         while (true) {
             System.out.println("**************** Nhập Đúng thông tin đầu vào ******************** ");
             System.out.println("**************** 1 Đăng nhập để tiếp tục ************************ ");
@@ -172,9 +172,19 @@ public class Demo {
         UserController controller = new UserController(service);
         System.out.println(" Danh sách các User  ");
         List<User> users = controller.getListUsers();
+
+        String str = "|%-5s|%-25s|%-30s|%-10s|\n";
+
+
+        System.out.format("+------+---------------------------+---------------------------------+-----------+%n");
+//        System.out.format("|  ID  |          Họ Tên               |                Email               |      Role    |%n");
+        System.out.printf("|%-5s | %-25s | %-30s | %-10s|\n", "ID", "Họ tên", "Email", "Role");
+        System.out.format("+------+---------------------------+---------------------------------+-----------+%n");
+//        System.out.format("+------+-------------------------------+------------------------------------+--------------+%n");
         for (User user : users) {
-            System.out.println(user);
+            System.out.printf(str, user.getId(), user.getFullName(), user.getEmail(), user.getTypeUser());
         }
+        System.out.format("+------+-------------------------------+------------------------------------+--------------+%n");
     }
 
     private void findIdUser() {
@@ -208,12 +218,12 @@ public class Demo {
 
     public void mainCreate() {
         while (true) {
-            System.out.println("******************************* Nhập Đúng thông tin đầu vào nhó....***************** ");
-            System.out.println("******************************* 1 Tạo tài khoản Admin******************************* ");
-            System.out.println("******************************* 2 Tạo tài khoản EmPloyee *************************** ");
-            System.out.println("******************************* 3 Tạo tài khoản Manage ***************************** ");
-            System.out.println("******************************* 4 Quay lại trang trước ***************************** ");
-            System.out.println("******************************* 5 kết thúc chương trình  *************************** ");
+            System.out.println("************** Nhập Đúng thông tin đầu vào nhó....******** ");
+            System.out.println("************** 1 Tạo tài khoản Admin********************** ");
+            System.out.println("************** 2 Tạo tài khoản EmPloyee ****************** ");
+            System.out.println("************** 3 Tạo tài khoản Manage ******************** ");
+            System.out.println("************** 4 Quay lại trang trước ******************** ");
+            System.out.println("************** 5 kết thúc chương trình  ****************** ");
             Demo demo = new Demo();
             int choose = ScannerUtils.inputInt();
             switch (choose) {
